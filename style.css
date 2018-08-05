@@ -3,11 +3,11 @@ Theme Name: Kratos
 Theme URI: https://github.com/Vtrois/Kratos
 Author: Vtrois
 Author URI: https://www.vtrois.com/
-Description: Kratos æ˜¯ä¸€æ¬¾ä¸“æ³¨äºä¸ªäººåšå®¢çš„ä¸»é¢˜ï¼Œæä¾›äº†ä¸€å¥—å¯è‡ªå®šä¹‰çš„ç§¯æœ¨å¼é¡µé¢é…ç½®ç»„ä»¶ï¼Œå¯ä»¥é€šè¿‡ä½¿ç”¨å°å·¥å…·ã€å¯¼èˆªã€ç¤¾äº¤ç»„ä»¶ã€ç«™ç‚¹æ ‡è¯†ã€è‡ªå®šé¢œè‰²ç­‰æ¥ä¸ªæ€§åŒ–ä½ çš„ç«™ç‚¹ã€‚
+Description: Kratos ÊÇÒ»¿î×¨×¢ÓÚ¸öÈË²©¿ÍµÄÖ÷Ìâ£¬Ìá¹©ÁËÒ»Ì×¿É×Ô¶¨ÒåµÄ»ıÄ¾Ê½Ò³ÃæÅäÖÃ×é¼ş£¬¿ÉÒÔÍ¨¹ıÊ¹ÓÃĞ¡¹¤¾ß¡¢µ¼º½¡¢Éç½»×é¼ş¡¢Õ¾µã±êÊ¶¡¢×Ô¶¨ÑÕÉ«µÈÀ´¸öĞÔ»¯ÄãµÄÕ¾µã¡£
 Version: 2.6.4
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: ç®€çº¦, ç´§å‡‘, ä¼˜é›…, æƒ…æ€€, å¤šæ , è‡ªé€‚åº”, å“åº”å¼, å°å·¥å…·, çµæ´»é¡¶éƒ¨, ä¸»é¢˜é€‰é¡¹, æ‰“èµç»„ä»¶, æ”¶å½•ä¼˜åŒ–, æ–‡ç« åˆ†äº«, è½®æ’­å›¾ç‰‡, é‚®ä»¶åŠŸèƒ½, ç¤¾äº¤ç»„ä»¶, å¹¿å‘Šæ ç›®, ç‰¹è‰²å›¾åƒ, éšåŠ¨è¾¹æ , åµŒå¥—è¯„è®º, é¡µè„šæŒ‚ä»¶, è‡ªå®šä¹‰è¾¹æ , è‡ªå®šä¹‰é¢œè‰², è‡ªå®šä¹‰èƒŒæ™¯, è‡ªå®šä¹‰å¸ƒå±€
+Tags: ¼òÔ¼, ½ô´Õ, ÓÅÑÅ, Çé»³, ¶àÀ¸, ×ÔÊÊÓ¦, ÏìÓ¦Ê½, Ğ¡¹¤¾ß, Áé»î¶¥²¿, Ö÷ÌâÑ¡Ïî, ´òÉÍ×é¼ş, ÊÕÂ¼ÓÅ»¯, ÎÄÕÂ·ÖÏí, ÂÖ²¥Í¼Æ¬, ÓÊ¼ş¹¦ÄÜ, Éç½»×é¼ş, ¹ã¸æÀ¸Ä¿, ÌØÉ«Í¼Ïñ, Ëæ¶¯±ßÀ¸, Ç¶Ì×ÆÀÂÛ, Ò³½Å¹Ò¼ş, ×Ô¶¨Òå±ßÀ¸, ×Ô¶¨ÒåÑÕÉ«, ×Ô¶¨Òå±³¾°, ×Ô¶¨Òå²¼¾Ö
 */
 
 @charset "UTF-8";
@@ -334,7 +334,7 @@ table,table tbody tr th {
 }
 
 #kratos-blog-post {
-	padding: 2em 0 2em
+	padding: 10px 0 0 0;
 }
 
 #kratos-blog-post p .aligncenter {
@@ -396,12 +396,12 @@ table,table tbody tr th {
 
 @media screen and (max-width:768px) {
 	.kratos-cover.kratos-hero-2,.kratos-start.kratos-hero-2 {
-		height: 250px
+		height: 255px
 	}
 }
 
 .kratos-start.kratos-post-header {
-	height: 100px
+	height: 55px
 }
 
 .kratos-cover.kratos-hero-2 .kratos-overlay,.kratos-start.kratos-hero-2 .kratos-overlay {
@@ -450,7 +450,7 @@ table,table tbody tr th {
 
 @media screen and (max-width:768px) {
 	.kratos-cover.kratos-cover_2 {
-		height: 250px;
+		height: 255px;
 		padding: 3em 0
 	}
 }
@@ -616,15 +616,16 @@ table,table tbody tr th {
 
 #kratos-header-section {
 	padding: 0;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 2
+	z-index: 9999;
+	background-color: black;
 }
 
 #kratos-header-section .sub-menu {
-	padding: 10px 7px 10px;
+	padding: 2px 1px 2px;
 	background: #fff;
 	left: -26px;
 	-webkit-border-radius: 5px;
@@ -685,7 +686,8 @@ table,table tbody tr th {
 .nav-header {
 	position: relative;
 	float: left;
-	width: 100%
+	width: 100%;
+	height: 55px;
 }
 
 #kratos-logo {
@@ -693,7 +695,7 @@ table,table tbody tr th {
 	z-index: 2;
 	font-size: 28px;
 	text-transform: none;
-	margin-top: 37px;
+	margin-top: 15px;
 	font-weight: 300;
 	float: left
 }
@@ -743,7 +745,7 @@ table,table tbody tr th {
 	z-index: 2;
 	display: block;
 	float: right;
-	margin-top: 22px
+	margin-top: 0px
 }
 
 #kratos-menu-wrap .sf-menu a {
