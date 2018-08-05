@@ -3190,7 +3190,7 @@ img.size-smiley {
 	.kratos-nav-toggle {
 		display: block;
 		top: 0;
-		margin-top: 2em
+		margin-top: 10px
 	}
 }
 
@@ -3553,5 +3553,40 @@ img.size-smiley {
 
 	.linkpage ul {
 		padding-left: 5px
+	}
+}
+
+#user_login{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 9999;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0px;
+	display: none;
+	cursor: pointer;
+	font-size:20px;
+}
+
+@media screen and (max-width:768px) {
+	#user_login{
+		display: block;
+		top: 0;
+		margin-top: 15px;
+	}
+	#user_login a{
+		color:#FFF;
+	}
+	#user_login a svg{
+		width:100%;
+		height:100%;
+	}
+	#user_login a img{
+		width:35%;
+		height:35%;
+		right: -50px;
+		top:-5px;
+		position: relative;
 	}
 }
