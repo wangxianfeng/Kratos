@@ -3583,10 +3583,10 @@ img.size-smiley {
 		height:100%;
 	}
 	#user_login a img{
-		width:35%;
-		height:35%;
-		right: -50px;
-		top:-5px;
+		width: 30%;
+		height: 30%;
+		right: -65px;
+		top: -8px;
 		position: relative;
 	}
 }
