@@ -3018,11 +3018,11 @@ img.size-smiley {
 }
 
 .kratos-offcanvas #kratos-page {
-	-moz-transform: translateX(-240px);
-	-webkit-transform: translateX(-240px);
-	-ms-transform: translateX(-240px);
-	-o-transform: translateX(-240px);
-	transform: translateX(-240px)
+	-moz-transform: translateX(240px);
+	-webkit-transform: translateX(240px);
+	-ms-transform: translateX(240px);
+	-o-transform: translateX(240px);
+	transform: translateX(240px)
 }
 
 @media screen and (max-width:768px) {
@@ -3037,7 +3037,7 @@ img.size-smiley {
 	bottom: 0;
 	z-index: 99;
 	background: #222;
-	right: -240px;
+	left: -240px;
 	width: 240px;
 	padding: 20px;
 	overflow-y: scroll!important
@@ -3176,7 +3176,7 @@ img.size-smiley {
 .kratos-nav-toggle {
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 0;
 	z-index: 9999;
 	display: block;
 	margin: 0 auto;
