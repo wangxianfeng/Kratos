@@ -245,7 +245,10 @@
 		$('#search_blog').click(function(){
 			var $mobile_search_box = $('#mobile_search_box');
 			$mobile_search_box.toggleClass('xf-hide');
-			
+			//如果搜索框显示，则把光标定位到搜索框中
+			if(!$mobile_search_box.hasClass('xf-hide')){
+				$mobile_search_box.find('#sm').focus();
+			}
 		});
 	}
 	//add by WangXianfeng(wang-xianfeng@qq.com)for mobile search end 2018-08-09
