@@ -3594,6 +3594,7 @@ img.size-smiley {
 	#user_login{
 		display: block;
 		top: 0;
+		right: -70px;
 		margin-top: 15px;
 	}
 	#user_login a{
@@ -3606,7 +3607,6 @@ img.size-smiley {
 	#user_login a img{
 		width: 30%;
 		height: 30%;
-		right: -70px;
 		top: -8px;
 		position: relative;
 	}
