@@ -76,7 +76,7 @@
 									<?php }?>
 								<span>
 							</div>
-							<div id="mobile_search_box" class="visible-xs visible-sm">
+							<div id="mobile_search_box" class="visible-xs visible-sm xf-hide">
 								<form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
 									<div class="form-group">
 										 <input type="text" name='s' id='sm' placeholder="Search…" class="form-control" placeholder="" x-webkit-speech>

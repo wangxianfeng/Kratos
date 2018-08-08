@@ -240,6 +240,15 @@
 	var copyright = function() {
 		console.log("项目托管：https://github.com/Vtrois/Kratos");
 	}
+	//add by WangXianfeng(wang-xianfeng@qq.com)for mobile search begin 2018-08-09
+	var search_blog = function(){
+		$('#search_blog').click(function(){
+			var $mobile_search_box = $('#mobile_search_box');
+			$mobile_search_box.toggleClass('xf-hide');
+			
+		});
+	}
+	//add by WangXianfeng(wang-xianfeng@qq.com)for mobile search end 2018-08-09
 
 	$(function() {
 		topStart();
@@ -255,5 +264,8 @@
 		contentWayPoint();
 		showPhotos();
 		copyright();
+		//add by WangXianfeng(wang-xianfeng@qq.com)for mobile search begin 2018-08-09
+		search_blog();
+		//add by WangXianfeng(wang-xianfeng@qq.com)for mobile search end 2018-08-09
 	});
 }());

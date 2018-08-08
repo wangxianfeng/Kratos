@@ -3582,6 +3582,14 @@ img.size-smiley {
 	font-size:20px;
 }
 
+.xf-hide{
+	display: none !important;
+}
+
+.xf-show{
+	display: block !important;
+}
+
 @media screen and (max-width:768px) {
 	#user_login{
 		display: block;
