@@ -95,16 +95,28 @@ kratos
 # 相比原版我的修改
 ## 登录页面修改为使用[M.J](http://webjyh.com/wordpress-login-page/)方案
 修改方法见[修改博客的登录页面](http://www.wangxianfeng.cn/wordpress/2017/10/09/%e4%bf%ae%e6%94%b9%e5%8d%9a%e5%ae%a2%e7%9a%84%e7%99%bb%e5%bd%95%e9%a1%b5%e9%9d%a2/)
+
+<br/>
 ![登录页面](/doc/images/login-page.png)
 
 
 ## 在文章列表和文章详情添加“编辑”按钮
+文章列表页面
+<br/>
 ![编辑按钮](/doc/images/edit_button.png)
+<br/>
+文章详情页面
+<br/>
 ![编辑按钮](/doc/images/edit_button2.png)
 ## 小屏幕页面添加“登录”和“搜索”图标
+右上角添加2个图标
+<br/>
 ![登录搜索](/doc/images/search_login_button.png)
+<br/>
+点击搜索按钮的时候搜索框出现
+<br/>
 ![登录搜索](/doc/images/search_login_button2.png)
-
+<br/>
   
 ## License
 
