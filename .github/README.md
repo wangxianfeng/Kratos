@@ -97,6 +97,7 @@ kratos
 修改方法见[修改博客的登录页面](http://www.wangxianfeng.cn/wordpress/2017/10/09/%e4%bf%ae%e6%94%b9%e5%8d%9a%e5%ae%a2%e7%9a%84%e7%99%bb%e5%bd%95%e9%a1%b5%e9%9d%a2/)
 
 <br/>
+
 ![登录页面](/doc/images/login-page.png)
 
 
