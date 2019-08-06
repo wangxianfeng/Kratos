@@ -6,7 +6,7 @@
  * @license GPL-3.0
  */
 
-define( 'KRATOS_VERSION', '2.6' );
+define( 'KRATOS_VERSION', '2.8' );
 
 require_once( get_template_directory() . '/inc/widgets.php');
 
@@ -16,11 +16,30 @@ require_once( get_template_directory() . '/inc/widgets.php');
  * @author Vtrois <seaton@vtrois.com>
  * @license GPL-3.0
  */
-function kratos_get_avatar( $avatar ) {
-    $avatar = str_replace( array( 'www.gravatar.com', '0.gravatar.com', '1.gravatar.com', '2.gravatar.com', '3.gravatar.com', 'secure.gravatar.com' ), 'cn.gravatar.com', $avatar );
+function kratos_get_https_avatar($avatar)
+{
+    $avatar = str_replace(array("www.gravatar.com", "0.gravatar.com", "1.gravatar.com", "2.gravatar.com", "3.gravatar.com", "cn.gravatar.com"), "secure.gravatar.com", $avatar);
+    $avatar = str_replace("http://", "https://", $avatar);
     return $avatar;
 }
-add_filter( 'get_avatar', 'kratos_get_avatar' );
+add_filter('get_avatar', 'kratos_get_https_avatar');
+
+/**
+ * Theme updating
+ * 
+ * @author Vtrois <seaton@vtrois.com>
+ * @license GPL-3.0
+ */
+require_once( get_template_directory() . '/inc/update-checker/update-checker.php' );
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/Vtrois/kratos',
+	__FILE__,
+	'Kratos'
+);
+
+//Optional: Set the branch that contains the stable release.
+// $myUpdateChecker->setBranch('stable-branch-name');
+
 
 /**
  * Disable automatic formatting
@@ -72,6 +91,12 @@ function kratos_theme_scripts() {
         wp_enqueue_script( 'hoverIntents', $dir . '/js/hoverIntent.min.js', array(), 'r7');
         wp_enqueue_script( 'superfish', $dir . '/js/superfish.js', array(), '1.0.0');
         wp_enqueue_script( 'kratos', $dir . '/js/kratos.js', array(),  KRATOS_VERSION);
+        
+        $data = array(
+            'site' => home_url(),
+        );
+    
+        wp_localize_script( 'kratos', 'kratos', $data );
     }  
 }  
 add_action('wp_enqueue_scripts', 'kratos_theme_scripts');
@@ -778,7 +803,7 @@ add_action('comment_post', 'comment_mail_notify');
  */
 add_filter('retrieve_password_message','kratos_reset_password_message',null,2);
 function kratos_reset_password_message($message,$key){
-    add_filter('wp_mail_content_type',create_function('','return "text/html";'));
+    add_filter('wp_mail_content_type',function(){return "text/html";});
     if(strpos($_POST['user_login'],'@')){
         $user_data = get_user_by('email',trim($_POST['user_login']));
     }else{
@@ -951,8 +976,8 @@ function kratos_blog_thumbnail() {
     if ( has_post_thumbnail() ) {
         echo '<a href="'.get_permalink().'"><img src="'.$img_url.'" /></a>';  
     } 
-}  
-add_filter( 'add_image_size', create_function( '', 'return 1;' ) );
+}
+add_filter( 'add_image_size', function() {return 1;} );
 add_theme_support( "post-thumbnails" );
 
 /**
@@ -978,7 +1003,7 @@ function kratos_blog_thumbnail_new() {
         if(!empty($img_val)){
             echo '<a href="'.get_permalink().'"><img src="'.$img_val.'" /></a>';
         } else {
-             echo '<a href="'.get_permalink().'"><img src="'. kratos_option('default_image') .'" /></a>';
+             echo '<a href="'.get_permalink().'"><img src="'. kratos_option('default_image', get_template_directory_uri() . '/images/default.jpg') .'" /></a>';
         }
     }  
 }
@@ -1290,9 +1315,32 @@ function Kratos_admin_notice() {
     }
   </style>
   <div class="notice notice-info">
-  <p class="about-description">嗨，欢迎使用 Kratos 主题开始创作，同时欢迎您加入主题交流群：<a target="_blank" rel="nofollow" href="http://shang.qq.com/wpa/qunwpa?idkey=182bd07a135c085c88ab7e3de38f2b2d9a86983292355a4708926b99dcd5b89f">51880737</a></p>
+  <p class="about-description">嗨，欢迎使用 Kratos 主题开始文章创作，欢迎您加入主题 QQ 交流群：<a target="_blank" rel="nofollow" href="//shang.qq.com/wpa/qunwpa?idkey=6ee0cc94b247fe4a068be7442b38fce2850485422ec9d655f0a60563ae00bdd2">734508</a> ，如果发现任何 BUG 或者您有什么好的建议，请按照页面给出的提示提交<a target="_blank" rel="nofollow" href="https://github.com/Vtrois/Kratos/issues/new"> Issues </a>。</p>
   </div>
   <?php
+}
+
+/**
+ * Use Gutenberg Editor
+ *
+ * @author Vtrois <seaton@vtrois.com>
+ * @license GPL-3.0
+ */
+if (kratos_option('use_gutenberg', true)) {
+    add_filter('use_block_editor_for_post', '__return_false');
+    remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
+}
+
+/**
+ * Support svg file upload
+ *
+ * @author Vtrois <seaton@vtrois.com>
+ * @license GPL-3.0
+ */
+add_filter('upload_mimes','upload_svg');
+function upload_svg ( $existing_mimes=array() ) {
+    $existing_mimes['svg']='image/svg+xml';
+    return $existing_mimes;
 }
 
 /**
@@ -1302,7 +1350,7 @@ function Kratos_admin_notice() {
  * @license GPL-3.0
  */
 function kratos_admin_footer_text($text) {
-       $text = '<span id="footer-thankyou">感谢使用 <a href=http://cn.wordpress.org/ target="_blank">WordPress</a>进行创作，<a target="_blank" rel="nofollow" href="http://shang.qq.com/wpa/qunwpa?idkey=182bd07a135c085c88ab7e3de38f2b2d9a86983292355a4708926b99dcd5b89f">点击</a> 加入主题讨论群。</span>';
+       $text = '<span id="footer-thankyou">感谢使用 <a href=http://cn.wordpress.org/ target="_blank">WordPress</a>进行创作，<a target="_blank" rel="nofollow" href="//shang.qq.com/wpa/qunwpa?idkey=6ee0cc94b247fe4a068be7442b38fce2850485422ec9d655f0a60563ae00bdd2">点击</a> 加入站长交流群。</span>';
     return $text;
 }
 

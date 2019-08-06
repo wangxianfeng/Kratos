@@ -2,7 +2,7 @@
 
 A clean, simple and responsive blog theme of WordPress, based on [Bootstrap](https://github.com/twbs/bootstrap) and [Font Awesome](https://github.com/FortAwesome/Font-Awesome). Created and maintained by Vtrois.
 
-![Kratos Demo](https://s1.ax1x.com/2018/04/01/9zYjNn.png) 
+![Kratos Demo](https://s2.ax1x.com/2019/03/24/AYUwY4.png)
 
 ## Structure
 Within the download you'll find the following directories and files. You'll see something like this :point_down:
@@ -49,7 +49,6 @@ kratos
 │   ├── ul-li.png
 │   └── weixin.png
 ├── inc
-│   ├── share.php
 │   ├── theme-options
 │   │   ├── css
 │   │   │   └── optionsframework.css
@@ -65,6 +64,7 @@ kratos
 │   │   │   ├── media-uploader.js
 │   │   │   └── options-custom.js
 │   │   └── options-framework.php
+│   ├── share.php
 │   ├── version.php
 │   └── widgets.php
 ├── index.php
